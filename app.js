@@ -1,8 +1,8 @@
 const http = require("http")
 const port = 3000
-var controller = require('./controller');
+var Controller = require('./controller');
 
-var testController = new  controller("id", "secret", "token");
+var testController = new Controller("id", "secret", "token");
 
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -14,7 +14,7 @@ server.listen(port, (err) => {
         return console.log("error", err)
     }
 
-    //console.log(`server listening on ${port}`)
+    console.log(`server listening on ${port}`)
     console.log(testController.clientID)
 
 })
