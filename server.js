@@ -1,6 +1,6 @@
 var http = require('http');
 var querystring = require('querystring');
-
+var botPostMessage = require('./bot');
 
 //Set up a server to allow listening and responding to Events
 
@@ -17,12 +17,19 @@ server.on('request', function (req, res) {
 
     req.on('end', function () {
         //var post = querystring.parse(body);
+        console.log("Body: "+body);
         var json = JSON.parse(body);
-
+        
         if(json.challenge){
             console.log("challenge: " + json.challenge);
         }else if(json.event){
             console.log("message was sent: " + json.event.text);
+            // botPostMessage.botPostMessage("Echo: " + json.event.text);
+
+            if(json.event.username != "DaneBot"){
+                botPostMessage("Echo: " + json.event.text);
+            }
+            
 
         }
         //console.log("body: " + body);
@@ -34,3 +41,4 @@ server.on('request', function (req, res) {
 });
 
 console.log('Listening on port 3000');
+

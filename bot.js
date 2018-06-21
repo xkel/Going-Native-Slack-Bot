@@ -28,16 +28,18 @@ function sendReq(options, body ){
         //reject on request error
         req.on('error', function(err) {
             console.log('error with request ' + JSON.stringify(err));
-            reject(error);
+            reject(err);
         });
         req.on('timeout', function(err){
             console.log('timeout with request ' + JSON.stringify(err));
-            reject(error)
+            reject(err);
         });
         if(body){
-            req.write(body);
+            req.end(JSON.stringify(body));
+        }else{
+            req.end();
         }
-        req.end();
+        
     });
 
 }
@@ -103,12 +105,9 @@ function testAPI(){
     // console.log("testing variable from outside the scope: " + x);
 }
 
-function main(){
 
-    botPostMessage("i promise to work");
-
-}
-
-main();
+//botPostMessage("i promise to work");
 
 
+
+module.exports = botPostMessage;
