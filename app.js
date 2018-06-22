@@ -1,5 +1,4 @@
 var Controller = require('./controller');
-
 const port = 3000;
 
 function main() {

@@ -1,7 +1,9 @@
 const http = require('http');
-const createSlackEvent = require('@slack/events-api').createSlackEventAdapter;
-const slackEvents = createSlackEventAdapter("TOKEN");
-const port = 3000; //port = process.env.PORT || 3000;
+
+const createSlackEventAdapter = require('@slack/events-api').createSlackEventAdapter;
+const slackEvents = createSlackEventAdapter("token123"); //process.env.SLACK_VERIFICATION_TOKEN
+const port = 3000; //port = process.env.PORT ||
+
 
 // Attach listeners to events by Slack Event "type".
 slackEvents.on('message', (event) => {
@@ -16,6 +18,7 @@ slackEvents.on('error', console.error);
 slackEvents.start(port).then(() => {
     console.log('server listening on port ${port}');
 })
+
 
 
 //Controller
