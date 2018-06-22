@@ -1,5 +1,9 @@
 var HTTPS = require('https');
 
+
+var botAuth = process.env.BOT_AUTH;
+var auth = process.env.USER_AUTH;
+
 function sendReq(options, body ){
  
     return new Promise(function(resolve, reject) {
