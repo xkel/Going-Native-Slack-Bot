@@ -44,7 +44,7 @@ function sendReq(options, body ){
 
 }
 
-function getChannels(){ 
+function getChannels(botAuth){ 
     var options;
 
     options = {
@@ -52,7 +52,7 @@ function getChannels(){
         path: '/api/channels.list',
         method: 'GET',
         headers: {
-            'Authorization': bot_auth,
+            'Authorization': botAuth,
             'Content-Type': 'application/x-www-form-urlencoded',
         }
     };
@@ -60,14 +60,14 @@ function getChannels(){
     sendReq(options);
 }
 
-function botPostMessage(message){
+function botPostMessage(message, botAuth){
     var options, body;
     options = {
         hostname: 'www.slack.com',
         path: '/api/chat.postMessage',
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer xoxb-379052561712-383098524721-3bQUrQUSaURzIFY8OKrTEmE1',
+            'Authorization': botAuth,
             'Content-Type': 'application/json',
         }
     };
@@ -81,7 +81,7 @@ function botPostMessage(message){
 }
 
 //Test API runs the first test API method to verify if things are running properly (for personal experience, not necessary at all)
-function testAPI(){
+function testAPI(auth){
     var options, x;
     x = '';
 
@@ -89,7 +89,7 @@ function testAPI(){
         hostname: 'www.slack.com',
         path: '/api/api.test',
         method: 'POST',
-        auth: 'Authorization: Bearer xoxp-379052561712-380798154231-383459354339-34ce5e30605ccdb841e26774a5f0f3e9',
+        auth: 'Authorization: '+ auth,
         headers: {
             'Content-Type': 'application/json',
         }
