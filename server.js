@@ -2,6 +2,10 @@ var http = require('http');
 var querystring = require('querystring');
 var botPostMessage = require('./bot');
 
+
+var botAuth = process.env.BOT_AUTH;
+var auth = process.env.USER_AUTH;
+
 //Set up a server to allow listening and responding to Events
 
 var server = http.createServer().listen(3000);
@@ -27,7 +31,7 @@ server.on('request', function (req, res) {
             // botPostMessage.botPostMessage("Echo: " + json.event.text);
 
             if(json.event.username != "DaneBot"){
-                botPostMessage("Echo: " + json.event.text);
+                botPostMessage("Echo: " + json.event.text, botAuth);
             }
             
 
