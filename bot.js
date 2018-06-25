@@ -106,8 +106,4 @@ function testAPI(auth){
 }
 
 
-//botPostMessage("i promise to work");
-
-
-
 module.exports = botPostMessage;

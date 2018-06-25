@@ -1,3 +1,5 @@
+// note this file is not necessary at all, this is just me playing around
+
 const http = require('http');
 
 const createSlackEventAdapter = require('@slack/events-api').createSlackEventAdapter;
