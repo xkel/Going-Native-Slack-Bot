@@ -22,11 +22,12 @@ The token keys  shown in the commit history are old.
 
 If you'd like to use this project as a starting point for developing your own bot for Slack you can simply git clone the project. Node and npm should be installed. Once you are in a terminal and are in the root project directory you can initiate the project by issuing the command "node index.js".
 
+You will have to use a tunneling software to expose an endpoint to a url listening on port 3000, then you will have to perform a handshake challenge at Slack/Events-API for full use of the events API. Once you initiate node index.js, node will start a server listening on port 3000 that can issue JSON responses.
+
+
+
+
+
 
 
 The project is named Going-Native after a song by the band Summer Salt
-
-
-
-
-
